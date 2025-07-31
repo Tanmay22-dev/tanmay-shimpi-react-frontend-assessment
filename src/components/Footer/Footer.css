@@ -1,0 +1,197 @@
+.footer {
+    background-color: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    padding: clamp(var(--spacing-xl), 5vw, var(--spacing-2xl)) clamp(var(--spacing-md), 3vw, var(--spacing-xl));
+    margin-top: auto;
+    width: 100%;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: var(--spacing-lg);
+    }
+
+    .footer-links {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+  
+  .footer-info h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .footer-info p {
+    font-size: var(--font-size-sm);
+    color: var(--color-textSecondary);
+    margin-bottom: var(--spacing-xs);
+    line-height: var(--line-height-relaxed);
+  }
+  
+  .footer-info .company {
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+  
+  .footer-links {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+  }
+  
+  .footer-link {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--color-textSecondary);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-fast);
+    border: 1px solid transparent;
+  }
+  
+  .footer-link:hover {
+    color: var(--color-primary);
+    background-color: var(--color-primary);
+    background-opacity: 0.1;
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+  }
+  
+  .footer-link:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+  
+  .footer-bottom {
+    margin-top: var(--spacing-xl);
+  }
+  
+  .footer-divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-border),
+      transparent
+    );
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .footer-copyright {
+    text-align: center;
+  }
+  
+  .footer-copyright p {
+    font-size: var(--font-size-sm);
+    color: var(--color-textSecondary);
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+  }
+  
+  .heart-icon {
+    color: var(--color-error);
+    animation: heartbeat 2s ease-in-out infinite;
+  }
+  
+  @keyframes heartbeat {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+  
+  .tech-stack {
+    font-size: var(--font-size-xs);
+    color: var(--color-textSecondary);
+    opacity: 0.8;
+    font-weight: 400;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .footer {
+      padding: var(--spacing-xl) 0;
+    }
+  
+    .footer-content {
+      flex-direction: column;
+      gap: var(--spacing-lg);
+      text-align: center;
+    }
+  
+    .footer-links {
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: var(--spacing-md);
+    }
+  
+    .footer-copyright p {
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer-links {
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+  
+    .footer-link {
+      width: 100%;
+      justify-content: center;
+      padding: var(--spacing-md);
+    }
+  }
+  
+  /* Hover effect for the entire footer */
+  .footer:hover .footer-link:not(:hover) {
+    opacity: 0.7;
+  }
+  
+  /* Loading animation for links */
+  .footer-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: all var(--transition-fast);
+    transform: translateX(-50%);
+  }
+  
+  .footer-link {
+    position: relative;
+  }
+  
+  .footer-link:hover::after {
+    width: 80%;
+  }

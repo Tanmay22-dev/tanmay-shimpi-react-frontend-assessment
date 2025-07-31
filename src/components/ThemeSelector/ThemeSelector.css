@@ -1,0 +1,208 @@
+.theme-selector {
+    padding: clamp(var(--spacing-xl), 5vw, var(--spacing-3xl));
+    background-color: var(--color-background);
+    width: 100%;
+  }
+  
+  .theme-selector-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+  }
+  
+  .section-icon {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .theme-selector-header h2 {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-md);
+    line-height: var(--line-height-tight);
+  }
+  
+  .theme-selector-header p {
+    font-size: var(--font-size-lg);
+    color: var(--color-textSecondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: var(--line-height-relaxed);
+  }
+  
+  .themes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: clamp(var(--spacing-md), 3vw, var(--spacing-xl));
+    margin-top: var(--spacing-2xl);
+    width: 100%;
+    padding: 0 clamp(var(--spacing-xs), 2vw, var(--spacing-md));
+  }
+  
+  .theme-card {
+    background-color: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: var(--border-radius-xl);
+    padding: var(--spacing-lg);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .theme-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-primary);
+  }
+  
+  .theme-card.active {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-lg);
+    background-color: var(--color-primary);
+    background-opacity: 0.05;
+  }
+  
+  .theme-card.active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      var(--color-primary),
+      var(--color-secondary),
+      var(--color-accent)
+    );
+  }
+  
+  .theme-preview {
+    display: flex;
+    height: 60px;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .color-bar {
+    flex: 1;
+    transition: all var(--transition-fast);
+  }
+  
+  .theme-card:hover .color-bar {
+    transform: scaleY(1.1);
+  }
+  
+  .theme-info {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .theme-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .theme-header h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+  }
+  
+  .check-icon {
+    color: var(--color-primary);
+    background-color: var(--color-surface);
+    border-radius: 50%;
+    padding: 2px;
+  }
+  
+  .theme-info p {
+    font-size: var(--font-size-sm);
+    color: var(--color-textSecondary);
+    line-height: var(--line-height-relaxed);
+    margin: 0;
+  }
+  
+  .theme-colors {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+  }
+  
+  .color-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid var(--color-surface);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-fast);
+  }
+  
+  .theme-card:hover .color-dot {
+    transform: scale(1.2);
+  }
+  
+  /* Focus styles for accessibility */
+  .theme-card:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .theme-selector {
+      padding: var(--spacing-2xl) 0;
+    }
+  
+    .themes-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-lg);
+    }
+  
+    .theme-selector-header h2 {
+      font-size: var(--font-size-2xl);
+    }
+  
+    .theme-card {
+      padding: var(--spacing-md);
+    }
+  
+    .theme-preview {
+      height: 40px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .theme-selector-header p {
+      font-size: var(--font-size-base);
+    }
+  
+    .theme-header h3 {
+      font-size: var(--font-size-lg);
+    }
+  }
+  
+  /* Animation for theme switching */
+  @keyframes themeSwitch {
+    0% {
+      opacity: 0.8;
+      transform: scale(0.95);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.02);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .theme-card.active {
+    animation: themeSwitch 0.3s ease-out;
+  }
