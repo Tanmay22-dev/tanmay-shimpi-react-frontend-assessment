@@ -5,7 +5,7 @@
 
 ## 🚀 Live Demo
 
-[View Live Application](https://tanmay-shimpi-react-assessment.netlify.app)
+[View Live Application](https://tanmay-shimpi-react-frontend-assess.vercel.app/)
 
 ## 📋 Project Overview
 
